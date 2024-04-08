@@ -1,4 +1,20 @@
 #!/system/bin/sh
+# This file is part of Auto Priority.
+#
+# Auto Priority is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Auto Priority is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Auto Priority.  If not, see <https://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2024 Rem01Gaming
 
 BASEDIR="$(dirname "$0")"
 game_list_filter="com.example.gamelist1|com.example.gamelist2$(awk '!/^[[:space:]]*$/ && !/^#/ && !(/[[:alnum:]]+[[:space:]]+[[:alnum:]]+[[:space:]]+[[:alnum:]]+/) {sub("-e ", ""); printf "|%s", $0}' "${BASEDIR}/gamelist.txt")"
