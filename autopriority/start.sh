@@ -20,7 +20,7 @@ BASEDIR="$(dirname "$0")"
 SCRIPT="auto_priority.sh"
 GAMELIST="gamelist.txt"
 
-if [ ! "$(pgrep -f $SCRIPT)" ]; then
+if [ "$(pgrep -f $SCRIPT)" ]; then
    echo "[*] Auto Priority will run in background."
    exit 1
 fi
