@@ -38,8 +38,10 @@ priority_mon() {
 		screenoff=$(echo "$window" | grep mScreen | grep -Eo "false" | tail -n 1)
 		if [ ! -z "$gamestart" ] && [[ "$screenoff" != "false" ]]; then
 			echo "$gamestart is a game, Optimizing..."
-			pid="$(pidof $gamestart)"
-			apply_priority $pid
+			pid="$(pgrep -f $gamestart)"
+                        pgrep -f "$gamestart" | while read -r pid; do
+                        apply_priority "$pid"
+                        done
 		fi
 		sleep 10
 	done
