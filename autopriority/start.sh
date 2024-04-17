@@ -20,11 +20,24 @@ BASEDIR="$(dirname "$0")"
 SCRIPT="auto_priority.sh"
 GAMELIST="gamelist.txt"
 
+if [ "$(pgrep -f $SCRIPT)" ]; then
+   echo "[*] Auto Priority will run in background."
+   exit 1
+fi
+
 if [ ! -f ${BASEDIR}/${SCRIPT} ] || [ ! -f ${BASEDIR}/${GAMELIST} ]; then
 	echo "[-] Cannot find Auto Priority files, you didn't remove it right?"
 	exit 1
 fi
 
 nohup /system/bin/sh ${BASEDIR}/${SCRIPT} >/dev/null 2>&1 &
-echo "[+] Successfully launch Auto Priority"
-echo "[*] It's save to exit your terminal, Auto Priority will run in background."
+
+if [ "$(pgrep -f $SCRIPT)" ]; then
+   echo "[+] Successfully launch Auto Priority"
+   echo "[*] Auto Priority will run in background."
+   echo "[*] It's save to exit your terminal"
+   exit 0
+else
+echo "[-] Failed launch Auto Priority"
+exit 1
+fi
