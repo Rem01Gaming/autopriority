@@ -32,7 +32,7 @@ fi
 
 nohup /system/bin/sh ${BASEDIR}/${SCRIPT} >/dev/null 2>&1 &
 
-if [ ! "$(pgrep -f $SCRIPT)" ]; then
+if [ "$(pgrep -f $SCRIPT)" ]; then
    echo "[+] Successfully launch Auto Priority"
    echo "[*] Auto Priority will run in background."
    echo "[*] It's save to exit your terminal"
