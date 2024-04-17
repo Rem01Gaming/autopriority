@@ -38,6 +38,6 @@ if [ ! "$(pgrep -f $SCRIPT)" ]; then
    echo "[*] It's save to exit your terminal"
    exit 0
 else
-echo "[+] Failed launch Auto Priority"
+echo "[-] Failed launch Auto Priority"
 exit 1
 fi
