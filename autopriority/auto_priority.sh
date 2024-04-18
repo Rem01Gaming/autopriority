@@ -46,5 +46,5 @@ priority_mon() {
 	done
 }
 
-/system/bin/cmd notification post -S bigtext -t \"Auto Priority\" "Tag$(date +%s)" \"Successfully launch Auto Priority\" >/dev/null 2>&1
+/system/bin/cmd notification post -S bigtext -t "Auto Priority" Tag "$(date +%d-%m-%Y) | Successfully launch Auto Priority" >/dev/null 2>&1
 priority_mon
